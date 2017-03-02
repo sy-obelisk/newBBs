@@ -124,20 +124,14 @@
     </nav>
 </div>
 <div class="wrapper wrapper-content">
-    <div><span>角色管理</span>------- <span><a href="/basic/role/add">添加角色</a></span></div>
+    <div><span><?php echo $name ?>权限</span></div>
     <div>
-        <ul>
-        <?php if(isset($role)){
-            foreach($role as $v){ ?>
-                <li><?php echo $v['id']?>--------------------<?php echo $v['name']?>------------------<a href="/basic/role/update?id=<?php echo $v['id']?>">修改</a>--<a href="/basic/role/delete?id=<?php echo $v['id']?>">删除</a>---<a href="/basic/role/limit?id=<?php echo $v['id']?>">角色权限</a></li>
-               <?php
-            }
-        } else { ?>
-            <li><a href="/basic/role/add">添加角色</a></li>
-            <?php
-        }
-        ?>
-        </ul>
+        <form action="">
+            <input type="checkbox" value="">
+            <input type="checkbox" value="">
+            <input type="checkbox" value="">
+            <input type="checkbox" value="">
+        </form>
     </div>
 </div>
 

@@ -5,7 +5,7 @@
     namespace app\commands\background;
     use yii\base\Widget;
     use yii;
-    use app\models\Block;
+    use app\models\User;
 	class LeftWidget extends Widget  {
         public $controller;
         public $module;
@@ -18,8 +18,9 @@
         {
             $userId = Yii::$app->session->get('adminId');
 
-            $model = new Block();
-            $this->data = $model->getModular($userId,0);
+            $model = new User();
+            $role = $model->find()->select(['roleId'])->where('uid='.$userId)->one();
+            $this->data = $model->getModular($role['roleId'],0);
 
         }
 

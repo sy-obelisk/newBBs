@@ -10,4 +10,8 @@ class Role extends ActiveRecord
         return '{{%role}}';
     }
 
+    public function getPower($id){
+        $data = \Yii::$app->db->createCommand("select * from {{%user_control}} ub LEFT JOIN {{%control}} b ON ub.controlId = b.id WHERE ub.roleId = $id AND b.pid=0")->queryAll();
+        return $data;
+    }
 }

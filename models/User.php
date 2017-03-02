@@ -4,14 +4,14 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 
-class Block extends ActiveRecord
+class User extends ActiveRecord
 {
     public static function tableName(){
-        return '{{%block}}';
+        return '{{%user}}';
     }
 
-    public function getModular($uid,$pid){
-        $data = \Yii::$app->db->createCommand("select * from {{%user_control}} ub LEFT JOIN {{%control}} b ON ub.controlId = b.id WHERE ub.uid = $uid AND b.pid=$pid")->queryAll();
+    public function getModular($roleId,$pid){
+        $data = \Yii::$app->db->createCommand("select * from {{%user_control}} ub LEFT JOIN {{%control}} b ON ub.controlId = b.id WHERE ub.roleId = $roleId AND b.pid=$pid")->queryAll();
         foreach($data as $k=>$v){
             $childData = $this->getSubordinate($v['id']);
             if(count($childData) > 0){

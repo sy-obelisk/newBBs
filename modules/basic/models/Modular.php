@@ -10,7 +10,7 @@ class Modular extends ActiveRecord
         return '{{%control}}';
     }
     public function getModular($uid,$pid){
-        $data = \Yii::$app->db->createCommand("select * from {{%user_control}} ub LEFT JOIN {{%control}} b ON ub.controlId = b.id WHERE ub.uid = $uid AND b.pid=$pid")->queryAll();
+        $data = \Yii::$app->db->createCommand("select * from {{%user_control}} ub LEFT JOIN {{%control}} b ON ub.controlId = b.id WHERE ub.roleId = $uid AND b.pid=$pid")->queryAll();
         foreach($data as $k=>$v){
             $childData = $this->getSubordinate($v['id']);
             if(count($childData) > 0){

@@ -6,6 +6,7 @@ use yii;
 use yii\web\Controller;
 use app\libs\ApiControl;
 use app\modules\basic\models\Role;
+use app\modules\basic\models\Modular;
 
 class RoleController extends ApiControl
 {
@@ -56,5 +57,14 @@ class RoleController extends ApiControl
         } else {
             die( '<script>alert("失败，请重试");history.go(-1);</script>');
         }
+    }
+    public function actionLimit(){
+        $id = Yii::$app->request->get('id');
+        $model = new Role();
+        $res = $model->findOne($id);
+        $name = $res['name'];
+        $data = Modular::find()->asArray()->where('pid=0')->all();
+        $power = $model->getPower($id);
+        return $this->render('limit',['name'=>$name]);
     }
 }
