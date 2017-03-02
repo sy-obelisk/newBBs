@@ -1,10 +1,72 @@
+<style>
+    .control-tit {
+        margin-top: 10px;
+        padding: 15px 20px;
+    }
+    .addRole{
+       padding-left: 50px;
+        text-align: right;
+
+    }
+
+    .tb1 {
+        margin-top: 20px;
+        width: 100%;
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    .tb1 thead {
+        border-top: 1px solid #b6b6b6;
+        border-bottom: 1px solid #b6b6b6;
+    }
+
+    .tb1 thead th {
+        text-align: center;
+    }
+
+    .tb1 tbody tr {
+        border-top: 1px solid #b6b6b6;
+        border-bottom: 1px solid #b6b6b6;
+    }
+
+    .tb1 tbody td {
+        font-size: 14px;
+        font-family: Arial, 宋体;
+        line-height: 21px;
+        padding: 15px 0;
+        color: #8f8f8f;
+    }
+
+    .tb1 thead th {
+        font-weight: normal;
+        padding: 10px 0;
+        font-size: 12px;
+        color: #8f8f8f;
+    }
+
+    .tb1 .handle a {
+        cursor: pointer;
+        text-align: center;
+        width: 50px;
+        height: 25px;
+        line-height: 25px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .tb1 a.alter {
+        border-right: 1px solid #b6b6b6;
+    }
+</style>
 <div class="row border-bottom">
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
             <form role="search" class="navbar-form-custom" action="search_results.html">
                 <div class="form-group">
-                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search"
+                           id="top-search">
                 </div>
             </form>
         </div>
@@ -14,7 +76,7 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                    <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
+                    <i class="fa fa-envelope"></i> <span class="label label-warning">16</span>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <li>
@@ -37,7 +99,8 @@
                             </a>
                             <div>
                                 <small class="pull-right text-navy">5h ago</small>
-                                <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>. <br>
+                                <strong>Chris Johnatan Overtunk</strong> started following <strong>Monica Smith</strong>.
+                                <br>
                                 <small class="text-muted">Yesterday 1:21 pm - 11.06.2014</small>
                             </div>
                         </div>
@@ -67,7 +130,7 @@
             </li>
             <li class="dropdown">
                 <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bell"></i>  <span class="label label-primary">8</span>
+                    <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
@@ -123,6 +186,57 @@
 
     </nav>
 </div>
+
+
+<div class="row control-tit wrapper border-bottom white-bg">
+    <span>角色管理</span>
+    <a class="addRole" href="/basic/role/add">添加角色</a>
+</div>
+<table class="tb1 col-lg-10">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>角色管理</th>
+        <th>操作</th>
+        <th>权限</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>管理员</td>
+        <td class="handle">
+            <a href="#" class="alter">修改</a><a href="#">删除</a>
+        </td>
+        <td><a href="#">角色权限</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>老师</td>
+        <td class="handle">
+            <a href="#" class="alter">修改</a><a href="#">删除</a>
+        </td>
+        <td><a href="#">角色权限</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<!--        <ul>-->
+<!--            --><?php //if (isset($role)) {
+//                foreach ($role as $v) { ?>
+<!--                    <li>--><?php //echo $v['id'] ?><!------------------------><?php //echo $v['name'] ?><!--------------------<a-->
+<!--                            href="/basic/role/update?id=--><?php //echo $v['id'] ?><!--">修改</a>--<a-->
+<!--                            href="/basic/role/delete?id=--><?php //echo $v['id'] ?><!--">删除</a></li>-->
+<!--                    --><?php
+//                }
+//            } else { ?>
+<!--                <li><a href="/basic/role/add">添加角色</a></li>-->
+<!--                --><?php
+//            }
+//            ?>
+<!--        </ul>-->
+</div>
+
 <div class="wrapper wrapper-content">
     <div><span>角色管理</span>------- <span><a href="/basic/role/add">添加角色</a></span></div>
     <div>
@@ -139,5 +253,6 @@
         ?>
         </ul>
     </div>
+
 </div>
 
