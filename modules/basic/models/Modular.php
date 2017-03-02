@@ -22,7 +22,7 @@ class Modular extends ActiveRecord
     public function getSubordinate($pid){
         $data = \Yii::$app->db->createCommand("select * from {{%control}} co WHERE co.pid=$pid")->queryAll();
         foreach($data as $k=>$v){
-            $data[$k]['action'] = '<a href="/basic/modular/add?id='.$v['id'].'">修改</a>';
+            $data[$k]['action'] = '<a href="/basic/modular/update?id='.$v['id'].'">修改</a>';
             $childData = $this->getSubordinate($v['id']);
             if(count($childData) > 0){
                 $data[$k]['children'] = $childData ;

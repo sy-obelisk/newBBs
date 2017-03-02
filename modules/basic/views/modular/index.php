@@ -131,7 +131,7 @@
         foreach($Modular as $v){
             ?>
             <li><?php echo $v['name'] ?></li>
-            <?php if($v['children']) {
+            <?php if(isset($v['children'])) {
                 foreach($v['children'] as $va) {
                     ?>
                     <li><ul><li><?php echo $va['name'] ?>------<?php echo $va['action'] ?></li></ul></li>

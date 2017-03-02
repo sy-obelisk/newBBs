@@ -22,13 +22,15 @@
         <?php
         foreach($data as $v){
             ?>
-            <li class="active">
+            <li>
                 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label"><?php echo $v['name']?></span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <?php
+                    if(isset($v['children'])){
                     foreach($v['children'] as $va) { ?>
-                        <li class="active"><a href="<?php echo $va['path']?>"><?php echo $va['name']?></a></li>
+                        <li class="active"><a href="<?php echo $va['path'] ?>"><?php echo $va['name'] ?></a></li>
                         <?php
+                    }
                     }
                     ?>
                     <li class=""><a href="/basic/modular/index">模块管理</a></li>

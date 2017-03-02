@@ -128,8 +128,15 @@
     <div>
         <form action="/basic/modular/add" method="post">
             <input type="hidden" name="uid" value="<?php  echo $uid?>">
-            <input type="hidden" name="pid" value="<?php echo isset($parent['id'])?$parent['id']: '0' ?>">
-            父级模块：<?php var_dump($modular) ?> <br/>
+            父级模块：<select name="pid" id="">
+                <?php
+                foreach($modular as $v) {
+                    ?>
+                    <option <?php if((isset($parent['id'])?$parent['id']:'0')==$v['id']){ ?> selected="selected" <?php } ?> value="<?php echo $v['id']?>"><?php echo $v['name']?></option>
+                    <?php
+                }
+                ?>
+            </select>
             模块名：<input type="text" name="modularName" value="<?php echo isset($data['name'])?$data['name']:'' ?>">
             <input type="submit" value="提交">
         </form>

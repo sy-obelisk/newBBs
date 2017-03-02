@@ -20,6 +20,7 @@
 
             $model = new Block();
             $this->data = $model->getModular($userId,0);
+
         }
 
         /**

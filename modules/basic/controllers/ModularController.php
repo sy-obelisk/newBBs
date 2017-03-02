@@ -20,12 +20,7 @@ class ModularController extends ApiControl
     public function actionAdd(){
         $session  = Yii::$app->session;
         $userId = $session->get('adminId');
-        $id = Yii::$app->request->get('id');
         $model = new Modular();
-        $modular = $model->getModular($userId,0);
-        if($id){
-            $data = $model->findOne($id);
-        }
         if($_POST){
             $uid = Yii::$app->request->post('uid');
             $pid = Yii::$app->request->post('pid');
@@ -39,7 +34,8 @@ class ModularController extends ApiControl
                 return $this->actionIndex();
             }
         } else{
-            return $this->render('add',['modular'=>$modular,'data'=>$data,'uid'=>$userId]);
+            $modular = $model->find()->asArray()->where('pid=0')->all();
+            return $this->render('add',['modular'=>$modular,'uid'=>$userId]);
         }
     }
 
@@ -47,7 +43,9 @@ class ModularController extends ApiControl
         $pid = Yii::$app->request->get('id');
         $userId = Yii::$app->session->get('adminId');
         $model = new Modular();
-        $Modular = $model->getModular($userId,$pid);
-        var_dump($Modular);
+        $res = $model->findOne($pid);
+        $parent = $model->find()->asArray()->where('id='.$res['pid'])->one();
+        $modular = $model->find()->asArray()->where('pid=0')->all();
+        return $this->render('add',['modular'=>$modular,'uid'=>$userId,'parent'=>$parent]);
     }
 }
