@@ -141,22 +141,24 @@
     </tr>
     </thead>
     <tbody>
+    <?php if(isset($role)){
+    foreach($role as $v){ ?>
     <tr>
-        <td>1</td>
-        <td>管理员</td>
+        <td><?php echo $v['id']?></td>
+        <td><?php echo $v['name']?></td>
         <td class="handle">
-            <a href="#" class="alter">修改</a><a href="#">删除</a>
+            <a href="/basic/role/update?id=<?php echo $v['id']?>" class="alter">修改</a><a href="/basic/role/delete?id=<?php echo $v['id']?>">删除</a>
         </td>
-        <td><a href="#">角色权限</a></td>
+        <td><a href="/basic/role/limit?id=<?php echo $v['id']?>">角色权限</a></td>
     </tr>
-    <tr>
-        <td>2</td>
-        <td>老师</td>
-        <td class="handle">
-            <a href="#" class="alter">修改</a><a href="#">删除</a>
-        </td>
-        <td><a href="#">角色权限</a></td>
-    </tr>
+        <?php
+    }
+    } else { ?>
+        <li><a href="/basic/role/add">添加角色</a></li>
+        <?php
+    }
+    ?>
+
     </tbody>
 </table>
 
