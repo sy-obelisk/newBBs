@@ -7,6 +7,7 @@ use yii\web\Controller;
 use app\libs\ApiControl;
 use app\modules\basic\models\Role;
 use app\modules\basic\models\Modular;
+use app\modules\basic\models\UserControl;
 
 class RoleController extends ApiControl
 {
@@ -40,7 +41,10 @@ class RoleController extends ApiControl
             return $this->render('add');
         }
     }
-
+    /**
+     * 修改角色页面
+     * by yanni
+     */
     public function actionUpdate(){
         $id = Yii::$app->request->get('id');
         $model = new Role();
@@ -62,9 +66,44 @@ class RoleController extends ApiControl
         $id = Yii::$app->request->get('id');
         $model = new Role();
         $res = $model->findOne($id);
-        $name = $res['name'];
-        $data = Modular::find()->asArray()->where('pid=0')->all();
-        $power = $model->getPower($id);
-        return $this->render('limit',['name'=>$name]);
+        $name = $res['name'];   //角色名
+        $data = Modular::find()->asArray()->select(['id','name'])->where('pid=0')->all(); //所有权限
+        $power = $model->getPower($id);         //已有权限
+        foreach($data as $key=>$d){
+            foreach($power as $p){
+                if($d['id']==$p['id']){
+                    $data[$key]['checked'] = 1;
+                }
+            }
+        }
+        return $this->render('limit',['name'=>$name,'data'=>$data,'power'=>$power]);
+    }
+
+    public function actionUpdateQx(){
+        $content = Yii::$app->request->post('content');
+        $role = Yii::$app->request->post('role');
+        $model = new Role();
+        $power = $model->getPower($role);         //已有权限
+        if($content){
+            foreach($power as $v){
+                if(!in_array($v['id'],$content)){
+                    $modele = new UserControl();
+                    $modele->deleteAll('controlId='.$v['id'].' and roleId='.$role);
+                }
+            }
+            foreach($content as $a){
+                $res = UserControl::find()->where('controlId='.$a.' and roleId='.$role)->all();
+                if(!$res){
+                    $modele = new UserControl();
+                    $modele->roleId = $role;
+                    $modele->controlId = $a;
+                    $modele->save();
+                }
+            }
+        } else {
+            $modele = new UserControl();
+            $modele->deleteAll('roleId='.$role);
+        }
+        header("Location:limit?id=".$role);
     }
 }
