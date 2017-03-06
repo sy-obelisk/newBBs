@@ -8,6 +8,7 @@
     <meta name="keywords" content="小申教育在线后台">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <title>小申教育</title>
+    <link rel="stylesheet" href="/css/coreCss/new/css/hiris.css">
     <!-- Le styles -->
     <link href="/css/coreCss/new/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/coreCss/new/font-awesome/css/font-awesome.css" rel="stylesheet">

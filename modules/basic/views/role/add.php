@@ -1,14 +1,3 @@
-<style>
-    .control-tit {
-        margin-top: 10px;
-        padding: 15px 20px;
-    }
-    .addRole{
-        padding-left: 50px;
-        text-align: right;
-
-    }
-</style>
 <div class="row border-bottom">
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">

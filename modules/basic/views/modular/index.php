@@ -123,6 +123,38 @@
 
     </nav>
 </div>
+<div class="row control-tit wrapper border-bottom white-bg">
+    <span>角色管理</span>
+    <a class="addRole" href="/basic/role/add">添加角色</a>
+</div>
+<table class="tb1 col-lg-10">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>角色管理</th>
+        <th>操作</th>
+        <th>权限</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>管理员</td>
+        <td class="handle">
+            <a href="#" class="alter">修改</a><a href="#">删除</a>
+        </td>
+        <td><a href="#">角色权限</a></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>老师</td>
+        <td class="handle">
+            <a href="#" class="alter">修改</a><a href="#">删除</a>
+        </td>
+        <td><a href="#">角色权限</a></td>
+    </tr>
+    </tbody>
+</table>
 <div class="wrapper wrapper-content">
     <div><span>模块管理</span>-----------<a href="/basic/modular/add">添加模块</a> </div>
     <div>

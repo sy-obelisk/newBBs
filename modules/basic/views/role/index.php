@@ -1,64 +1,3 @@
-<style>
-    .control-tit {
-        margin-top: 10px;
-        padding: 15px 20px;
-    }
-    .addRole{
-       padding-left: 50px;
-        text-align: right;
-
-    }
-
-    .tb1 {
-        margin-top: 20px;
-        width: 100%;
-        text-align: center;
-        border-collapse: collapse;
-    }
-
-    .tb1 thead {
-        border-top: 1px solid #b6b6b6;
-        border-bottom: 1px solid #b6b6b6;
-    }
-
-    .tb1 thead th {
-        text-align: center;
-    }
-
-    .tb1 tbody tr {
-        border-top: 1px solid #b6b6b6;
-        border-bottom: 1px solid #b6b6b6;
-    }
-
-    .tb1 tbody td {
-        font-size: 14px;
-        font-family: Arial, 宋体;
-        line-height: 21px;
-        padding: 15px 0;
-        color: #8f8f8f;
-    }
-
-    .tb1 thead th {
-        font-weight: normal;
-        padding: 10px 0;
-        font-size: 12px;
-        color: #8f8f8f;
-    }
-
-    .tb1 .handle a {
-        cursor: pointer;
-        text-align: center;
-        width: 50px;
-        height: 25px;
-        line-height: 25px;
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-    .tb1 a.alter {
-        border-right: 1px solid #b6b6b6;
-    }
-</style>
 <div class="row border-bottom">
     <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -235,7 +174,7 @@
 //            }
 //            ?>
 <!--        </ul>-->
-</div>
+
 
 <div class="wrapper wrapper-content">
     <div><span>角色管理</span>------- <span><a href="/basic/role/add">添加角色</a></span></div>
